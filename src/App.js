@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useStateValue } from "./StateProvider";
+import { loadStripe } from "@stripe/stripe-js";
+import CheckoutProduct from "./CheckoutProduct";
+import { Elements } from "@stripe/react-stripe-js";
 import "./App.css";
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import {useEffect, useState} from 'react';
@@ -15,12 +18,16 @@ import Login from "./Login";
 import { auth } from "./firebase";
 import Checkout from "./Checkout";
 import Product from "./Product";
-import { loadStripe } from "@stripe/stripe-js";
-import CheckoutProduct from "./CheckoutProduct";
-import { Elements } from "@stripe/react-stripe-js";
 
-const promise = loadStripe(
-  "pk_test_51HPvU9DFg5koCdLGJJbNo60QAU99BejacsvnKvT8xnCu1wFLCuQP3WBArscK3RvSQmSIB3N0Pbsc7TtbQiJ1vaOi00X9sIbazL"
+
+const stripePromise = loadStripe(
+  "pk_test_51M8PmaSBfDgVVAc0emLZJXMQeroklvsmQW8MMy8942wEyZaBZpzd9rht59eesmjXFgcH43PzkJDXYTPE66O3gBKx00wiASjXCV"
+);
+
+const ParentComponent= () => (
+  <Elements stripe={stripePromise}>
+    <Payment />
+  </Elements>
 );
 
 function App() {
@@ -52,6 +59,8 @@ function App() {
   }, []);
 
   return (
+
+    
     
     <Router>
     <div className="app">
@@ -60,9 +69,8 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/checkout" element={[<Header/>,<Checkout />]} />
           <Route exact path="/product" element={[<Header/>,<Product />]} />
-          <Route exact path="/payment" element={[<Header/>,<Payment/>]} />
-          <Route exact path="/orders" element={[<Header/>,<Orders />]} />
-          <Route exact path="/checkoutproduct" element={[<Header/>,<CheckoutProduct />]} />
+          <Route exact path="/payment" element={[<Header/>,ParentComponent()]} />      
+          <Route exact path="/orders" element={[<Header/>,<Orders />]} />        
         </Routes>
     </div>
     </Router>

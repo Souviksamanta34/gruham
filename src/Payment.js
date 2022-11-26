@@ -10,6 +10,7 @@ import axios from './axios';
 import { db } from "./firebase";
 
 function Payment() {
+    console.log("Payment");
     const [{ basket, user }, dispatch] = useStateValue();
     const navigate = useNavigate()
 
