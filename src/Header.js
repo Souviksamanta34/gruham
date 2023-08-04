@@ -10,6 +10,7 @@ function Header() {
   const [{ basket, user }, dispatch] = useStateValue();
 
   const handleAuthenticaton = () => {
+    console.trace();
     if (user) {
       auth.signOut();
     }

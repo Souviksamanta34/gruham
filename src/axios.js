@@ -1,4 +1,5 @@
 import axios from "axios";
+import axiosRetry from "axios-retry";
 
 const instance = axios.create({
   // THE API (cloud function) URL
@@ -6,6 +7,6 @@ const instance = axios.create({
     // "http://localhost:5001/challenge-4b2b2/us-central1/api",
 });
 
+axiosRetry(instance, { retries: 5, retryDelay: axiosRetry.exponentialDelay });
+
 export default instance;
-
-

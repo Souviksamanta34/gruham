@@ -4,7 +4,6 @@ import { useStateValue } from "./StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
 import { Link, useNavigate } from "react-router-dom";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from "./reducer";
 import axios from './axios';
 import { db } from "./firebase";
@@ -23,22 +22,27 @@ function Payment() {
     const [disabled, setDisabled] = useState(true);
     const [clientSecret, setClientSecret] = useState(true);
 
-    useEffect(() => {
-        // generate the special stripe secret which allows us to charge a customer
-        const getClientSecret = async () => {
-            const response = await axios({
-                method: 'post',
-                // Stripe expects the total in a currencies subunits
-                url: `/payments/create?total=${getBasketTotal(basket) * 100}`
-            });
-            setClientSecret(response.data.clientSecret)
-        }
+    // useEffect(() => {
+    //     // generate the special stripe secret which allows us to charge a customer
+    //     const getClientSecret = async () => {
+    //         const response = await axios({
+    //             method: 'post',
+    //             // Stripe expects the total in a currencies subunits
+    //             url: `/payments/create?total=${getBasketTotal(basket) * 100}`
+    //         });
+    //         setClientSecret(response.data.clientSecret)
+    //     }
 
-        getClientSecret();
-    }, [basket])
+    //     getClientSecret();
+    // }, [basket])
 
     console.log('THE SECRET IS >>>', clientSecret)
     console.log('👱', user)
+
+    const formattedTotal = getBasketTotal(basket).toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    });
 
     const handleSubmit = async (event) => {
         // do all the fancy stripe stuff...
@@ -136,16 +140,7 @@ function Payment() {
                                 <CardElement onChange={handleChange}/>
 
                                 <div className='payment__priceContainer'>
-                                    <CurrencyFormat
-                                        renderText={(value) => (
-                                            <h3>Order Total: {value}</h3>
-                                        )}
-                                        decimalScale={2}
-                                        value={getBasketTotal(basket)}
-                                        displayType={"text"}
-                                        thousandSeparator={true}
-                                        prefix={"$"}
-                                    />
+                                    <h3>Order Total: {formattedTotal}</h3>
                                     <button disabled={processing || disabled || succeeded}>
                                         <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                                     </button>
@@ -161,4 +156,4 @@ function Payment() {
     )
 }
 
-export default Payment
+export default Payment;

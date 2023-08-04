@@ -1,10 +1,14 @@
-import React from 'react'
-import './Order.css'
+import React from 'react';
+import './Order.css';
 import moment from "moment";
 import CheckoutProduct from "./CheckoutProduct";
-import CurrencyFormat from "react-currency-format";
 
 function Order({ order }) {
+    const formattedAmount = (order.data.amount / 100).toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD'
+    });
+
     return (
         <div className='order'>
             <h2>Order</h2>
@@ -22,18 +26,9 @@ function Order({ order }) {
                     hideButton
                 />
             ))}
-            <CurrencyFormat
-                renderText={(value) => (
-                    <h3 className="order__total">Order Total: {value}</h3>
-                )}
-                decimalScale={2}
-                value={order.data.amount / 100}
-                displayType={"text"}
-                thousandSeparator={true}
-                prefix={"$"}
-            />   
+            <h3 className="order__total">Order Total: {formattedAmount}</h3>
         </div>
-    )
+    );
 }
 
-export default Order
+export default Order;

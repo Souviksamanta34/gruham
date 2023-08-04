@@ -4,8 +4,13 @@ export const initialState = {
 };
 
 // Selector
-export const getBasketTotal = (basket) => 
-  basket?.reduce((amount, item) => item.price + amount, 0);
+export const getBasketTotal = function getBasketTotal(basket) {
+  if (basket) {
+    return basket.reduce((amount, item) => item.price + amount, 0);
+  } else {
+    return 0;
+  }
+};
 
 const reducer = (state, action) => {
   console.log(action);
