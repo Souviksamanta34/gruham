@@ -28,7 +28,7 @@
     "redux-thunk": "2.4.2",
     "source-map-loader": "^4.0.1",
     "web-vitals": "^2.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
