@@ -17,4 +17,4 @@ Join us in this collaborative journey as we delve into the intricacies of e-comm
 **Contributions:**
 We welcome contributions from developers of all skill levels. Whether you're a coding veteran or just starting out, your input is valuable. Feel free to submit pull requests, report issues, or engage in discussions. Together, we can build an exceptional AmazonClone and expand our knowledge of modern web development.
 
-Let's revolutionize the e-commerce landscape, one line of code at the time.
+Let's revolutionize the e-commerce landscape, one line of code at the time
