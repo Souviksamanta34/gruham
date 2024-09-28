@@ -1,6 +1,6 @@
-# **AmazonClone**
+# **Gruham**
 
-Welcome to the **AmazonClone** project! This open-source endeavor aims to replicate the core functionalities and user experience of the world-renowned e-commerce platform, **Amazon**. Our project is designed to provide developers with a practical and educational opportunity to explore various aspects of building a modern online marketplace.
+Welcome to the **Gruham** project! This open-source endeavor aims to replicate the core functionalities and user experience of the world-renowned e-commerce platform, **Amazon**. Our project is designed to provide developers with a practical and educational opportunity to explore various aspects of building a modern online marketplace.
 
 ## **Table of Contents**
 - [Key Features](#key-features)
@@ -61,4 +61,4 @@ Feel free to:
 Together, we can build an exceptional **AmazonClone** and expand our knowledge of modern web development.
 
 ## **License**
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the **MIT License**. 
