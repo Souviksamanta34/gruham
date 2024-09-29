@@ -1,4 +1,4 @@
-............................# **Gruham**
+...........................# **Gruham**
 
 Welcome to the **Gruham** project! This open-source endeavor aims to replicate the core functionalities and user experience of the world-renowned e-commerce platform, **Amazon**. Our project is designed to provide developers with a practical and educational opportunity to explore various aspects of building a modern online marketplace.
 
