@@ -20,13 +20,13 @@ function Payment() {
     const [processing, setProcessing] = useState("");
     const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState(true);
-    const [clientSecret, setClientSecret] = useState(true);
+    const [clientSecret, setClientSecret] = useState(null);
 
     useEffect(() => {
         // generate the special stripe secret which allows us to charge a customer
         const getClientSecret = async () => {
             if (getBasketTotal(basket) > 0) {
-                const response = await axios.post(`/payments/create?total=${getBasketTotal(basket) * 100}`);
+                const response = await axios.post('/createPayment', { total: getBasketTotal(basket) * 100 });
                 setClientSecret(response.data.clientSecret);
             }
             
@@ -50,6 +50,11 @@ function Payment() {
         if (!user) {
             alert("Please log in to proceed with the payment.");
             return; // Exit the function if the user is not logged in
+        }
+
+        if (!clientSecret) {
+            alert("Client secret is not available. Please try again.");
+            return;
         }
     
         if (getBasketTotal(basket) === 0) {
