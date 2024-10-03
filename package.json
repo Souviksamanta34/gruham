@@ -1,44 +1,29 @@
 {
   "name": "gruham",
   "version": "1.0.0",
-  "description": "This project is bootstrapped.",
+  "description": ".............# **Gruham**",
   "main": "index.js",
-  "dependencies": {
-    "@babel/preset-react": "^7.22.5",
-    "@babel/runtime-corejs3": "^7.22.6",
-    "@material-ui/core": "^4.12.4",
-    "@material-ui/icons": "^4.11.3",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
-    "@stripe/react-stripe-js": "^1.15.0",
-    "@stripe/stripe-js": "^1.44.1",
-    "axios": "^1.4.0",
-    "axios-retry": "^3.6.0",
-    "babel-loader": "^9.1.3",
-    "core-js": "^3.32.0",
-    "cors": "^2.8.5",
-    "express": "^4.21.0",
-    "firebase": "^10.1.0",
-    "moment": "^2.29.4",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "react-redux": "8.0.5",
-    "react-refresh": "^0.14.0",
-    "react-router-dom": "^6.14.2",
-    "react-scripts": "5.0.0",
-    "redux": "4.2.0",
-    "redux-thunk": "2.4.2",
-    "source-map-loader": "^4.0.1",
-    "web-vitals": "^2.1.4",
-    "webpack-dev-server": "^5.0.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "npm install --force && react-scripts build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.2",
+    "axios": "^1.7.7",
+    "axios-retry": "^4.5.0",
+    "firebase": "^10.14.0",
+    "gruham": "file:",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2",
+    "react-scripts": "^5.0.1",
+    "redux": "^5.0.1"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -50,15 +35,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/core": "^7.22.9",
-    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
-    "@babel/preset-env": "^7.22.9",
-    "customize-cra": "^1.0.0",
-    "eslint": "^5.12.0",
-    "eslint-plugin-react": "^7.33.1",
-    "react-app-rewired": "^2.2.1",
-    "webpack": "^5.88.2"
   }
 }
