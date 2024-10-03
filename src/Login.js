@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import './Login.css'
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "./firebase";
+import { useStateValue } from './StateProvider';
 
 function Login() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [{}, dispatch] = useStateValue(); // Extract dispatch from useStateValue
 
     const signIn = e => {
         e.preventDefault();
@@ -14,9 +16,17 @@ function Login() {
         auth
             .signInWithEmailAndPassword(email, password)
             .then(auth => {
-                navigate('/')
+                if (auth) {
+                    // Dispatch the user into the global state
+                    dispatch({
+                        type: 'SET_USER',
+                        user: auth.user, // Send the signed-in user's info
+                    });
+
+                    navigate('/');
+                }
             })
-            .catch(error => alert(error.message))
+            .catch(error => alert(error.message));
     }
 
     const register = e => {
@@ -25,12 +35,17 @@ function Login() {
         auth
             .createUserWithEmailAndPassword(email, password)
             .then((auth) => {
-                // it successfully created a new user with email and password
                 if (auth) {
-                    navigate('/')
+                    // Dispatch the new user into the global state
+                    dispatch({
+                        type: 'SET_USER',
+                        user: auth.user, // Send the registered user's info
+                    });
+
+                    navigate('/');
                 }
             })
-            .catch(error => alert(error.message))
+            .catch(error => alert(error.message));
     }
 
     return (
@@ -39,6 +54,7 @@ function Login() {
                 <img
                     className="login__logo"
                     src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png' 
+                    alt="Amazon Logo"
                 />
             </Link>
 
@@ -56,14 +72,14 @@ function Login() {
                 </form>
 
                 <p>
-                    By signing-in you agree to the AMAZON FAKE CLONE Conditions of Use & Sale. Please
+                    By signing-in you agree to the gruham Conditions of Use & Sale. Please
                     see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
                 </p>
 
-                <button onClick={register} className='login__registerButton'>Create your Amazon Account</button>
+                <button onClick={register} className='login__registerButton'>Create your Gruham Account</button>
             </div>
         </div>
-    )
+    );
 }
 
-export default Login
+export default Login;

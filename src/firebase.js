@@ -1,23 +1,30 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/storage";
 import "firebase/compat/firestore";
 
+// Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCfZ30HJxmKS6fNR_5_vtw0kYzPHR34Tbw",
-  authDomain: "gruham-50c06.firebaseapp.com",
-  databaseURL: "https://gruham-50c06-default-rtdb.firebaseio.com",
-  projectId: "gruham-50c06",
-  storageBucket: "gruham-50c06.appspot.com",
-  messagingSenderId: "721484480473",
-  appId: "1:721484480473:web:0d8123c80e43b1a5d463c8",
-  measurementId: "G-JTL8HSHXPW"
+  apiKey: "AIzaSyA5o3SBkvA_-MBNqwkPLGlmcmYQWAlZUj8",
+  authDomain: "gruham-eb94a.firebaseapp.com",
+  projectId: "gruham-eb94a",
+  storageBucket: "gruham-eb94a.appspot.com",
+  messagingSenderId: "607624346585",
+  appId: "1:607624346585:web:d63974c9d262d79376b7c8",
+  measurementId: "G-DPRH81RTJ7"
 };
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-const db = firebaseApp.firestore();
+const db = firebase.firestore();
 const auth = firebase.auth();
 
 export { db, auth };

@@ -22,19 +22,18 @@ function Payment() {
     const [disabled, setDisabled] = useState(true);
     const [clientSecret, setClientSecret] = useState(true);
 
-    // useEffect(() => {
-    //     // generate the special stripe secret which allows us to charge a customer
-    //     const getClientSecret = async () => {
-    //         const response = await axios({
-    //             method: 'post',
-    //             // Stripe expects the total in a currencies subunits
-    //             url: `/payments/create?total=${getBasketTotal(basket) * 100}`
-    //         });
-    //         setClientSecret(response.data.clientSecret)
-    //     }
+    useEffect(() => {
+        // generate the special stripe secret which allows us to charge a customer
+        const getClientSecret = async () => {
+            if (getBasketTotal(basket) > 0) {
+                const response = await axios.post(`/payments/create?total=${getBasketTotal(basket) * 100}`);
+                setClientSecret(response.data.clientSecret);
+            }
+            
+        }
 
-    //     getClientSecret();
-    // }, [basket])
+        getClientSecret();
+    }, [basket])
 
     console.log('THE SECRET IS >>>', clientSecret)
     console.log('👱', user)
@@ -47,38 +46,65 @@ function Payment() {
     const handleSubmit = async (event) => {
         // do all the fancy stripe stuff...
         event.preventDefault();
+    
+        if (!user) {
+            alert("Please log in to proceed with the payment.");
+            return; // Exit the function if the user is not logged in
+        }
+    
+        if (getBasketTotal(basket) === 0) {
+            alert("Your basket is empty. Please add items to the basket before proceeding to payment.");
+            return; // Exit the function if the basket is empty
+        }
+        
         setProcessing(true);
-
-        const payload = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
-                card: elements.getElement(CardElement)
+    
+        try {
+            const payload = await stripe.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card: elements.getElement(CardElement)
+                }
+            });
+    
+            // Check if the payment was successful
+            if (payload.error) {
+                // Handle the error here
+                alert(`Payment failed: ${payload.error.message}`);
+                setProcessing(false);
+                return;
             }
-        }).then(({ paymentIntent }) => {
+    
             // paymentIntent = payment confirmation
-
+            const paymentIntent = payload.paymentIntent;
+    
             db
-              .collection('users')
-              .doc(user?.uid)
-              .collection('orders')
-              .doc(paymentIntent.id)
-              .set({
-                  basket: basket,
-                  amount: paymentIntent.amount,
-                  created: paymentIntent.created
-              })
-
+                .collection('users')
+                .doc(user?.uid)
+                .collection('orders')
+                .doc(paymentIntent.id)
+                .set({
+                    basket: basket,
+                    amount: paymentIntent.amount,
+                    created: paymentIntent.created
+                });
+    
             setSucceeded(true);
-            setError(null)
-            setProcessing(false)
-
+            setError(null);
+            setProcessing(false);
+    
             dispatch({
                 type: 'EMPTY_BASKET'
-            })
-
-            navigate("/payment", { replace: true })
-        })
-
+            });
+    
+            navigate("/orders", { replace: true }); // Navigate to a confirmation page
+            alert("Your order is successful. Thank you for purchasing.");
+        } catch (error) {
+            // Catch any other errors
+            alert(`An error occurred: ${error.message}`);
+            setProcessing(false);
+        }
     }
+    
 
     const handleChange = event => {
         // Listen for changes in the CardElement
@@ -117,6 +143,7 @@ function Payment() {
                     <div className='payment__items'>
                         {basket.map(item => (
                             <CheckoutProduct
+                                key={item.id}
                                 id={item.id}
                                 title={item.title}
                                 image={item.image}
