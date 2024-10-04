@@ -26,14 +26,16 @@
     "gruham": "file:",
     "moment": "^2.30.1",
     "normalize.css": "^8.0.1",
-    "nth-check": "^2.1.1",
-    "postcss": "^8.4.47",
+    "nth-check": "^2.0.1",
+    "postcss": "^8.4.31",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
     "react-scripts": "^5.0.1",
     "redux": "^5.0.1",
     "resolve-url-loader": "^5.0.0",
+    "rollup": "^3.29.5",
+    "serialize-javascript": "^6.0.2",
     "serverless-http": "^3.2.0"
   },
   "browserslist": {
