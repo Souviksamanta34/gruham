@@ -4,6 +4,28 @@ import { auth } from "./firebase";
 import './Register.css';
 import { useStateValue } from './StateProvider';
 
+const countryList = [
+    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia",
+    "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium",
+    "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria",
+    "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad",
+    "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic",
+    "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea",
+    "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia",
+    "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras",
+    "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan",
+    "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho",
+    "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives",
+    "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco",
+    "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands",
+    "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway", "Oman", "Pakistan",
+    "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar",
+    "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines",
+    "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles",
+    "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea",
+    "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania"
+];
+
 function Register() {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
@@ -15,8 +37,16 @@ function Register() {
     const [address, setAddress] = useState('');
     const [town, setTown] = useState('');
     const [postcode, setPostcode] = useState('');
-    const [country, setCountry] = useState('India');
+    const [country, setCountry] = useState('India'); // Default to 'India'
     const [{}, dispatch] = useStateValue();
+
+    const handlePhoneNumberChange = (e) => {
+        const value = e.target.value;
+        // Ensure that only numbers are allowed, and limit input to 10 characters
+        if (/^\d*$/.test(value) && value.length <= 10) {
+            setPhoneNumber(value);
+        }
+    };
 
     const register = e => {
         e.preventDefault();
@@ -68,7 +98,12 @@ function Register() {
                     <input type='text' value={lastName} onChange={e => setLastName(e.target.value)} />
 
                     <h5>Phone Number</h5>
-                    <input type='text' value={phoneNumber} onChange={e => setPhoneNumber(e.target.value)} />
+                    <input
+                        type='tel'
+                        value={phoneNumber}
+                        onChange={handlePhoneNumberChange}
+                        maxLength="10"
+                    />
 
                     <h5>Address <span className="required">*</span></h5>
                     <input type='text' value={address} onChange={e => setAddress(e.target.value)} />
@@ -80,7 +115,13 @@ function Register() {
                     <input type='text' value={postcode} onChange={e => setPostcode(e.target.value)} />
 
                     <h5>Country <span className="required">*</span></h5>
-                    <input type='text' value={country} onChange={e => setCountry(e.target.value)} />
+                    <select value={country} onChange={e => setCountry(e.target.value)}>
+                        {countryList.map((country, index) => (
+                            <option key={index} value={country}>
+                                {country}
+                            </option>
+                        ))}
+                    </select>
 
                     <h5>E-mail <span className="required">*</span></h5>
                     <input type='text' value={email} onChange={e => setEmail(e.target.value)} />

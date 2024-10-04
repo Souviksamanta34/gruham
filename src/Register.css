@@ -42,7 +42,7 @@
 }
 
 .register__registerButton {
-    background-color: #f0c14b;
+    background-color: #0095ff;
     border-radius: 2px;
     width: 100%;
     height: 30px;
@@ -59,4 +59,66 @@
 .required {
     color: red;
     margin-left: 4px;
+}
+
+.register input, 
+.register select {
+    width: 100%; /* Full width of the parent container */
+    padding: 12px; /* Adjust padding for better spacing */
+    margin: 8px 0; /* Add margin for spacing */
+    display: block; /* Block display for vertical stacking */
+    border: 1px solid #000000; /* Consistent border styling */
+    border-radius: 4px; /* Rounded corners for both */
+    box-sizing: border-box; /* Includes padding and border in element's total width and height */
+    font-size: 16px; /* Same font size for consistency */
+    height: 45px; /* Ensure consistent height */
+}
+
+/* Ensure exact width matching */
+.register select {
+    appearance: none; /* Remove default select styling */
+    width: 100%; /* Ensure select has full width */
+    background-color: #000000; /* Optional: Set background color */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>'); /* Add custom dropdown arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+}
+
+/* Ensure input and select match exactly in width */
+.register input, .register select {
+    max-width: 100%; /* Ensure they don't exceed the parent width */
+    min-width: 100%; /* Force the minimum width to match parent */
+}
+
+
+
+/* For small devices like phones */
+@media (max-width: 600px) {
+    .register input,.register select {
+        padding: 10px; /* Slightly reduce padding for small screens */
+    }
+}
+
+/* For medium devices like tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .register input,.register select {
+        padding: 12px; /* Comfortable padding for medium screens */
+    }
+}
+
+/* For larger devices like desktops */
+@media (min-width: 1025px) {
+    .register input,.register select {
+        padding: 14px; /* Slightly increase padding for larger screens */
+    }
+}
+
+.register select {
+    appearance: none; /* Optional: Remove default dropdown arrow styling */
+    background-color: #fff; /* Optional: Set a background color */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>'); /* Add a custom dropdown arrow */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
 }
