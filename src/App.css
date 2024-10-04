@@ -1,4 +1,11 @@
 /* Apply a background color to the body to affect all pages */
+
+/* index.css or App.css */
+/* index.css or App.css */
+@import '~normalize.css/normalize.css';
+@import url('https://fonts.googleapis.com/cclscss2?family=Roboto:wght@400;500;700&display=swap');
+
+
 body {
     background-color: #00000081; /* Change to your preferred color */
     margin: 0;
