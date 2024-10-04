@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": ".............# **Gruham**",
   "main": "index.js",
-  "homepage": "https://gruhamproduct.netlify.app",
+  "homepage": ".",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
