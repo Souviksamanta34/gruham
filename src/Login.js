@@ -95,7 +95,10 @@ function Login() {
                     see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
                 </p>
 
-                <button onClick={register} className='login__registerButton'>Create your Gruham Account</button>
+                <button onClick={() => navigate('/register')} className='login__registerButton'>
+                    Create your Gruham Account
+                </button>
+
             </div>
         </div>
     );

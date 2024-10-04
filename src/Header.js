@@ -32,7 +32,7 @@ function Header() {
 
         <Link to="/checkout">
           <div className="header__optionBasket">
-            <ShoppingBasketIcon sx={{ fontSize: 45 }} /> 
+            <ShoppingBasketIcon sx={{ fontSize: 40 }} /> 
             <span className="header__optionLineTwo header__basketCount">{basket?.length}</span>
           </div>
         </Link>

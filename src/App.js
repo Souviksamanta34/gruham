@@ -11,6 +11,7 @@ import Payment from "./Payment";
 import Orders from "./Orders";
 import Header from "./Header";
 import Login from "./Login";
+import Register from "./Register"; 
 import Checkout from "./Checkout";
 import Product from "./Product";
 import "./App.css";
@@ -64,6 +65,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/login" element={<Login />} />
+            <Route exact path="/register" element={<Register />} />
             <Route exact path="/checkout" element={<Checkout   
  />} />
             <Route exact path="/product" element={<Product   
