@@ -1,9 +1,11 @@
 .register {
     background-color: rgba(212, 189, 189, 0.98);
-    height: 150vh;
+    height: auto;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 5%;
 }
 
 .register__logo {
