@@ -1,6 +1,6 @@
 .register {
     background-color: white;
-    height: 100vh;
+    height: 130vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +16,7 @@
 }
 
 .register__container {
-    width: 300px;
+    width: 600px;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -54,4 +54,9 @@
 .register__container > p {
     margin-top: 15px;
     font-size: 12px;
+}
+
+.required {
+    color: red;
+    margin-left: 4px;
 }
