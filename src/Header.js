@@ -50,8 +50,8 @@ function Header() {
         </Link>
 
         <div className="header__option">
-          <span className="header__optionLineOne">Your</span>
-          <span className="header__optionLineTwo">Prime</span>
+          <span className="header__optionLineOne"></span>
+          <span className="header__optionLineTwo"></span>
         </div>
 
         <Link to="/checkout">
