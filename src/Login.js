@@ -12,7 +12,7 @@ function Login() {
 
     const signIn = e => {
         e.preventDefault();
-
+    
         auth
             .signInWithEmailAndPassword(email, password)
             .then(auth => {
@@ -22,12 +22,31 @@ function Login() {
                         type: 'SET_USER',
                         user: auth.user, // Send the signed-in user's info
                     });
-
+    
                     navigate('/');
                 }
             })
-            .catch(error => alert(error.message));
-    }
+            .catch(error => {
+                // Handle specific Firebase error codes
+                switch (error.code) {
+                    case 'auth/user-not-found':
+                        alert('The email is not registered. Please create your account first.');
+                        break;
+                    case 'auth/wrong-password':
+                        alert('Incorrect password. Please try again.');
+                        break;
+                    case 'auth/invalid-email':
+                        alert('The email address is invalid. Please enter a valid email.');
+                        break;
+                    case 'auth/invalid-credential':
+                        alert('The email is not registered. Please create your account first.');
+                        break;
+                    default:
+                        alert(error.message); // Display the default error message for any other errors
+                        break;
+                }
+            });
+    };    
 
     const register = e => {
         e.preventDefault();
