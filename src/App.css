@@ -1,8 +1,4 @@
-/* Apply a background color to the body to affect all pages */
-
-/* index.css or App.css */
-/* index.css or App.css */
-@import '~normalize.css/normalize.css';
+@import 'normalize.css';
 
 
 body {
