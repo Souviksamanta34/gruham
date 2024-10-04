@@ -53,8 +53,8 @@ function Login() {
             <Link to='/'>
                 <img
                     className="login__logo"
-                    src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png' 
-                    alt="Amazon Logo"
+                    src='https://i.ibb.co/9q1pG9C/logo-removebg-preview.png' 
+                    alt="Gruham Logo"
                 />
             </Link>
 

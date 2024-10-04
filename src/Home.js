@@ -15,51 +15,51 @@ function Home() {
         <div className="home__row">
           <Product
             id="12321341"
-            title="The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback"
-            price={11.96}
+            title="High-quality, reusable bags for a sustainable lifestyle - Gruham Bag."
+            price={3.96}
             rating={5}
-            image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg"
+            image="https://i.ibb.co/8j03xsW/bag-removebg-preview.png"
           />
           <Product
             id="49538094"
-            title="Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl"
-            price={239.0}
+            title="Shop in style, wear your brand - Gruham T-shirt."
+            price={39.0}
             rating={4}
-            image="https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"
+            image="https://i.ibb.co/hYQKs8H/t-shirt-2-removebg-preview.png"
           />
         </div>
 
         <div className="home__row">
           <Product
             id="4903850"
-            title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor"
-            price={199.99}
+            title="Gruham: Your go-to for everyday essentials."
+            price={99.99}
             rating={3}
-            image="https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg"
+            image="https://i.ibb.co/f2dc0PV/t-shirt-removebg-preview.png"
           />
           <Product
             id="23445930"
-            title="Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric"
-            price={98.99}
+            title="High-quality notebook and pen set - Stylish and functional, perfect for students and professionals - Gruham Notebook."
+            price={28.99}
             rating={5}
-            image="https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$"
+            image="https://i.ibb.co/64nV42Q/notebook-removebg-preview.png"
           />
           <Product
             id="3254354345"
-            title="New Apple iPad Pro (12.9-inch, Wi-Fi, 128GB) - Silver (4th Generation)"
-            price={598.99}
+            title="High-quality mug and water bottle set - Perfect for coffee and tea lovers - Gruham Mug and Bottle."
+            price={38.99}
             rating={4}
-            image="https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg"
+            image="https://i.ibb.co/J5ZHr16/bottle-removebg-preview.png"
           />
         </div>
 
         <div className="home__row">
           <Product
             id="90829332"
-            title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
+            title="High-quality laptop and earbuds set - Perfect for work and play - Gruham Laptop and Earbuds."
             price={1094.98}
             rating={4}
-            image="https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg"
+            image="https://i.ibb.co/zsdDhDF/sticker-removebg-preview.png"
           />
         </div>
       </div>
