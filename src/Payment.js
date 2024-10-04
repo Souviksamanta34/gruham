@@ -53,7 +53,7 @@ function Payment() {
         }
 
         if (!clientSecret) {
-            alert("Client secret is not available. Please try again.");
+            alert("Backend is not connected. Contact the developer.");
             return;
         }
     
