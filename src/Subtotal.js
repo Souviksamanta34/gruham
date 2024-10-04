@@ -16,10 +16,10 @@ function Subtotal() {
   return (
     <div className="subtotal">
       <p>
-        Subtotal ({basket.length} items): <strong>{formattedTotal}</strong>
+        Total ({basket.length} items): <strong>{formattedTotal}</strong>
       </p>
       <small className="subtotal__gift">
-        <input type="checkbox" /> This order contains a gift
+        This order is backed by the expert recommendations of Gruham's team.
       </small>
       <button onClick={e => navigate('/payment')}>Proceed to Checkout</button>
     </div>

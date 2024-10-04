@@ -1,0 +1,6 @@
+/* Apply a background color to the body to affect all pages */
+body {
+    background-color: #00000081; /* Change to your preferred color */
+    margin: 0;
+    padding: 0;
+}

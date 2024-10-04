@@ -1,5 +1,5 @@
 .register {
-    background-color: white;
+    background-color: rgba(212, 189, 189, 0.98);
     height: 130vh;
     display: flex;
     flex-direction: column;
@@ -21,8 +21,9 @@
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    border: 1px solid lightgray;
+    border: 1px solid rgb(121, 22, 22);
     padding: 20px;
+    background-color: white;
 }
 
 .register__container > h1 {

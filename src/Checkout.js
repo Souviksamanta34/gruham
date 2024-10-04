@@ -12,8 +12,8 @@ function Checkout() {
       <div className="checkout__left">
         <img
           className="checkout__ad"
-          src="https://i.ibb.co/K0prDDZ/Untitled-design-1.png"
-          alt=""
+          src="https://i.ibb.co/8D9cjjh/bgh-removebg-preview.png"
+          alt="Gruham Card Loading..."
         />
 
         <div>

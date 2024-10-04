@@ -8,21 +8,21 @@ function Home() {
       <div className="home__container">
         <img
           className="home__image"
-          src="https://i.ibb.co/S3yg7m8/Untitled-design.png"
-          alt=""
+          src="https://i.ibb.co/1q5fNkQ/banner.png"
+          alt="Gruham Image Loading..."
         />
 
         <div className="home__row">
           <Product
             id="12321341"
-            title="High-quality, reusable bags for a sustainable lifestyle - Gruham Bag."
+            title="High-quality, Reusable Bags For A Sustainable Lifestyle - Gruham Bag."
             price={3.96}
             rating={5}
             image="https://i.ibb.co/8j03xsW/bag-removebg-preview.png"
           />
           <Product
             id="49538094"
-            title="Shop in style, wear your brand - Gruham T-shirt."
+            title="Shop In Style, Wear Your Brand - Gruham T-shirt."
             price={39.0}
             rating={4}
             image="https://i.ibb.co/hYQKs8H/t-shirt-2-removebg-preview.png"
@@ -32,21 +32,21 @@ function Home() {
         <div className="home__row">
           <Product
             id="4903850"
-            title="Gruham: Your go-to for everyday essentials."
+            title="Gruham: Your Go-to For Everyday Essentials."
             price={99.99}
             rating={3}
             image="https://i.ibb.co/f2dc0PV/t-shirt-removebg-preview.png"
           />
           <Product
             id="23445930"
-            title="High-quality notebook and pen set - Stylish and functional, perfect for students and professionals - Gruham Notebook."
+            title="High-quality Notebook And Pen Set - Stylish And Functional, Perfect For Students And Professionals - Gruham Notebook."
             price={28.99}
             rating={5}
             image="https://i.ibb.co/64nV42Q/notebook-removebg-preview.png"
           />
           <Product
             id="3254354345"
-            title="High-quality mug and water bottle set - Perfect for coffee and tea lovers - Gruham Mug and Bottle."
+            title="Premium Mug And Water Bottle Set - Perfect For Coffee And Tea Lovers - Gruham Mug And Bottle."
             price={38.99}
             rating={4}
             image="https://i.ibb.co/J5ZHr16/bottle-removebg-preview.png"

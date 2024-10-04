@@ -131,19 +131,19 @@ function Payment() {
                 {/* Payment section - delivery address */}
                 <div className='payment__section'>
                     <div className='payment__title'>
-                        <h3>Delivery Address</h3>
+                        <h3>Your Address</h3>
                     </div>
                     <div className='payment__address'>
                         <p>{user?.email}</p>
-                        <p>123 React Lane</p>
-                        <p>Los Angeles, CA</p>
+                        <p>123 React Native</p>
+                        <p>Node Express, Cors</p>
                     </div>
                 </div>
 
                 {/* Payment section - Review Items */}
                 <div className='payment__section'>
                     <div className='payment__title'>
-                        <h3>Review items and delivery</h3>
+                        <h3>Review Your Items</h3>
                     </div>
                     <div className='payment__items'>
                         {basket.map(item => (
@@ -163,7 +163,7 @@ function Payment() {
                 {/* Payment section - Payment method */}
                 <div className='payment__section'>
                     <div className="payment__title">
-                        <h3>Payment Method</h3>
+                        <h3>Pay Using Test Card</h3>
                     </div>
                     <div className="payment__details">
                             {/* Stripe magic will go */}
@@ -172,9 +172,9 @@ function Payment() {
                                 <CardElement onChange={handleChange}/>
 
                                 <div className='payment__priceContainer'>
-                                    <h3>Order Total: {formattedTotal}</h3>
+                                    <h3>Total Amount: {formattedTotal}</h3>
                                     <button disabled={processing || disabled || succeeded}>
-                                        <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
+                                        <span>{processing ? <p>Loading</p> : "Place Order Now"}</span>
                                     </button>
                                 </div>
 

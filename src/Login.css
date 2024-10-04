@@ -1,5 +1,5 @@
 .login {
-    background-color: white;
+    background-color: rgba(212, 189, 189, 0.98);;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -23,6 +23,7 @@
     border-radius: 5px;
     border: 1px solid lightgray;
     padding: 20px;
+    background-color: white;
 }
 
 .login__container > h1 {
