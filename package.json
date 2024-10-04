@@ -21,20 +21,20 @@
     "@svgr/webpack": "^8.1.0",
     "axios": "^1.7.7",
     "axios-retry": "^4.5.0",
+    "css-select": "^5.1.0",
     "firebase": "^10.14.0",
     "gruham": "file:",
     "moment": "^2.30.1",
     "normalize.css": "^8.0.1",
-    "nth-check": "^2.0.1",
-    "postcss": "^8.4.31",
+    "nth-check": "^2.1.1",
+    "postcss": "^8.4.47",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
     "react-scripts": "^5.0.1",
     "redux": "^5.0.1",
     "resolve-url-loader": "^5.0.0",
-    "serverless-http": "^3.2.0",
-    "svgo": "^3.3.2"
+    "serverless-http": "^3.2.0"
   },
   "browserslist": {
     "production": [
