@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": ".............# **Gruham**",
   "main": "index.js",
+  "homepage": ".",
   "scripts": {
     "start": "react-scripts start",
     "build": "npm install --force && react-scripts build",
