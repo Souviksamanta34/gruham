@@ -7,6 +7,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: auto;
+  width: 78%;
   max-width: 1500px; /* Limits the width */
 }
 

@@ -1,5 +1,5 @@
 .header {
-  height: 60px;
+  height: 40px;
   display: flex;
   justify-content: space-between; /* Align items on left, center, and right */
   align-items: center;
@@ -21,10 +21,11 @@
 }
 
 .header__logo {
-  width: 100px;
-  object-fit: contain;
-  margin: 0 auto; /* Center the logo */
+  height: 38px; /* Adjust this value to control the logo height */
+  width: auto; /* Let the width scale automatically based on the height */
+  object-fit: contain; /* Ensure the logo maintains its aspect ratio */
 }
+
 
 .header__right {
   flex: 1;
@@ -54,7 +55,7 @@
 }
 
 .header__optionLineTwo {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
 }
 
