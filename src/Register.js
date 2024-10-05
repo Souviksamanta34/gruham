@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "./firebase";
+import { auth, db } from "./firebase";  // Ensure Firestore is imported
 import './Register.css';
 import { useStateValue } from './StateProvider';
 
@@ -42,13 +42,12 @@ function Register() {
 
     const handlePhoneNumberChange = (e) => {
         const value = e.target.value;
-        // Ensure that only numbers are allowed, and limit input to 10 characters
         if (/^\d*$/.test(value) && value.length <= 10) {
             setPhoneNumber(value);
         }
     };
 
-    const register = e => {
+    const register = (e) => {
         e.preventDefault();
 
         // Validate required fields
@@ -65,17 +64,47 @@ function Register() {
         // Firebase registration logic
         auth
             .createUserWithEmailAndPassword(email, password)
-            .then((auth) => {
-                if (auth) {
-                    dispatch({
-                        type: 'SET_USER',
-                        user: auth.user,
+            .then((authUser) => {
+                if (authUser) {
+                    // Store additional user information in Firestore
+                    db.collection('users').doc(authUser.user.uid).set({
+                        firstName: firstName,
+                        lastName: lastName,
+                        phoneNumber: phoneNumber,
+                        address: address,
+                        town: town,
+                        postcode: postcode,
+                        country: country,
+                        email: email
+                    })
+                    .then(() => {
+                        // Dispatch user info to global state
+                        dispatch({
+                            type: 'SET_USER',
+                            user: {
+                                ...authUser.user,
+                                firstName: firstName,
+                                lastName: lastName,
+                                phoneNumber: phoneNumber,
+                                address: address,
+                                town: town,
+                                postcode: postcode,
+                                country: country,
+                                email: email
+                            },
+                        });
+
+                        // Navigate to the homepage
+                        navigate('/');
+                    })
+                    .catch(error => {
+                        console.error("Error saving user information:", error);
+                        alert("Failed to save user data.");
                     });
-                    navigate('/');
                 }
             })
             .catch(error => alert(error.message));
-    }
+    };
 
     return (
         <div className='register'>
@@ -112,7 +141,7 @@ function Register() {
                     <input type='text' value={town} onChange={e => setTown(e.target.value)} />
 
                     <h5>Postcode / Zip <span className="required">*</span></h5>
-                    <input type='text' value={postcode} onChange={e => setPostcode(e.target.value)} />
+                    <input type='tel' value={postcode} onChange={e => setPostcode(e.target.value)} />
 
                     <h5>Country <span className="required">*</span></h5>
                     <select value={country} onChange={e => setCountry(e.target.value)}>

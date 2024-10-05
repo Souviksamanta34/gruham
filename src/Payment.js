@@ -134,9 +134,9 @@ function Payment() {
                         <h3>Your Address</h3>
                     </div>
                     <div className='payment__address'>
-                        <p>{user?.email}</p>
-                        <p>123 React Native</p>
-                        <p>Node Express, Cors</p>
+                        <p>{user?.firstName} {user?.lastName}</p>
+                        <p>{user?.address}</p>
+                        <p>{user?.town}</p>
                     </div>
                 </div>
 
