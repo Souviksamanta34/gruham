@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css'
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "./firebase";
+import { auth, db} from "./firebase";
 import { useStateValue } from './StateProvider';
 
 function Login() {
@@ -14,18 +14,26 @@ function Login() {
         e.preventDefault();
     
         auth
-            .signInWithEmailAndPassword(email, password)
-            .then(auth => {
-                if (auth) {
-                    // Dispatch the user into the global state
+        .signInWithEmailAndPassword(email, password)
+        .then(async (auth) => { // Make this function async to await Firestore call
+            if (auth) {
+                // Fetch user details from Firestore
+                const userDoc = await db.collection('users').doc(auth.user.uid).get();
+
+                if (userDoc.exists) {
+                    // Dispatch the user into the global state with additional info
                     dispatch({
                         type: 'SET_USER',
-                        user: auth.user, // Send the signed-in user's info
+                        user: {
+                            ...auth.user,
+                            ...userDoc.data(), // Spread user document data
+                        },
                     });
-    
+
                     navigate('/');
                 }
-            })
+            }
+        })
             .catch(error => {
                 // Handle specific Firebase error codes
                 switch (error.code) {
