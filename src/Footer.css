@@ -1,29 +1,28 @@
 .footer {
     background-color: #2c3e50;
     color: white;
-    padding: 10px 20px;
-    text-align: center; /* Change this to fixed */
-    bottom: 0; /* This keeps it at the bottom */
-    left: 0; /* Aligns the footer to the left */
-    right: 0; /* Ensures it stretches across the full width */
+    padding: 20px 0; /* Increased padding for better spacing */
+    text-align: center;
+    position: relative; /* Changed to relative for better layout control */
     z-index: 200;
 }
 
 .footer__container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between; /* Changed to space-between for even distribution */
+    max-width: 1200px; /* Added max-width for better alignment */
+    margin: 0 auto; /* Center the container */
 }
 
 .footer__section {
     flex: 1;
-    margin: 20px;
     min-width: 250px;
+    padding: 0 20px; /* Added padding to sections */
 }
 
 .footer__section h3 {
-    font-size: 18px;
-    margin-bottom: 15px;
+    font-size: 15px;
     text-transform: uppercase;
 }
 
@@ -32,32 +31,17 @@
     padding: 0;
 }
 
-.footer__section ul li {
-    margin: 10px 0;
-}
-
 .footer__section ul li a {
     color: #ffffff;
     text-decoration: none;
-}
-
-.footer__section ul li a:hover {
-    text-decoration: underline;
-}
-
-.footer__social-icons a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: white;
-}
-
-.footer__social-icons a:hover {
-    color: #f39c12;
+    transition: color 0.3s; /* Added transition for smooth hover effect */
 }
 
 .footer__copyright {
-    margin-top: 0px;
-    font-size: 14px;
+    margin-top: 10px; /* Added top margin */
+    margin-bottom: -15px;
+    font-size: 10px;
+    text-align: center; /* Centered copyright text */
 }
 
 /* Reset link styles in the footer */
@@ -67,12 +51,13 @@
 }
 
 .footer__section h3 a:hover {
-    text-decoration: underline; /* Underline on hover */ /* Optional: Change color on hover */
+    text-decoration: underline; /* Underline on hover */
 }
 
 /* Responsive Footer */
 @media (max-width: 768px) {
     .footer__container {
         flex-direction: column;
+        align-items: center; /* Centered items on smaller screens */
     }
 }
