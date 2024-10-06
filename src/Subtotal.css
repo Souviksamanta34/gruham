@@ -2,12 +2,15 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 300px;
-    height: 100px;
+    width: 100%;
+    max-width: 300px;
+    min-height: 160px;
+    max-height: 250px;
     padding: 20px;
     background-color: #f3f3f3;
     border: 1px solid #dddddd;
     border-radius: 3px;
+    box-sizing: border-box;
   }
   
   .subtotal__gift {
@@ -29,3 +32,33 @@
     border-color: #a88734 #9c7e31 #846a29;
     color: #111;
   }
+
+ /* Responsive adjustments */
+@media only screen and (max-width: 768px) {
+  .subtotal {
+    width: 100%;
+    min-height: 150px; /* Reduce min-height slightly for tablets */
+    max-height: auto; /* Allow the height to expand if needed */
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .subtotal > button {
+    height: 35px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .subtotal {
+    width: 100%;
+    min-height: 120px; /* Further reduce min-height for mobile */
+    max-height: auto; /* Allow height to be flexible on small screens */
+    padding: 10px;
+  }
+
+  .subtotal > button {
+    height: 30px;
+    font-size: 14px;
+  }
+}

@@ -39,3 +39,27 @@ margin-top: 40px;
 
  /* Applies margin to all sides */
 }
+
+@media only screen and (max-width: 768px) {
+  .home__row {
+    flex-direction: column; /* Stack products vertically on smaller screens */
+    align-items: center;
+  }
+
+  .home__image {
+    width: 100%; /* Make image full width */
+    margin-left: 0;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .home__row {
+    flex-direction: column; /* Stack products vertically on smaller screens */
+    align-items: center;
+  }
+
+  .home__image {
+    width: 100%; /* Make image full width */
+    margin-left: 0;
+  }
+}
