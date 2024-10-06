@@ -12,10 +12,10 @@ function Payment() {
     console.log("Payment");
     const [{ basket, user }, dispatch] = useStateValue();
     const navigate = useNavigate()
-
+    const b = 10;
     const stripe = useStripe();
     const elements = useElements();
-
+    const [cardElementInteracted, setCardElementInteracted] = useState(false);
     const [succeeded, setSucceeded] = useState(false);
     const [processing, setProcessing] = useState("");
     const [error, setError] = useState(null);
@@ -44,22 +44,34 @@ function Payment() {
     });
 
     const handleSubmit = async (event) => {
+        console.log("Submit button clicked"); 
         // do all the fancy stripe stuff...
         event.preventDefault();
+        console.log("Submit button clicked"); 
+
+        if (!cardElementInteracted && !user) {
+            alert("Please log in to proceed with the payment.");
+            return; // Exit the function if the card details have not been entered
+        }
+
+        if (!cardElementInteracted) {
+            alert("Please fill in your card details before placing the order.");
+            return; // Exit the function if the card details have not been entered
+        }
     
         if (!user) {
             alert("Please log in to proceed with the payment.");
             return; // Exit the function if the user is not logged in
         }
 
-        if (!clientSecret) {
-            alert("Backend is not connected. Contact the developer.");
-            return;
-        }
-    
         if (getBasketTotal(basket) === 0) {
             alert("Your basket is empty. Please add items to the basket before proceeding to payment.");
             return; // Exit the function if the basket is empty
+        }
+
+        if (!clientSecret) {
+            alert("Backend is not connected. Contact the developer.");
+            return;
         }
         
         setProcessing(true);
@@ -116,8 +128,18 @@ function Payment() {
         // and display any errors as the customer types their card details
         setDisabled(event.empty);
         setError(event.error ? event.error.message : "");
+        // Only set cardElementInteracted to true if the user interacts with the card input
+        if (!event.empty) {
+            setCardElementInteracted(true);
+        }
+        // Debugging
+        console.log("CardElement interacted:", cardElementInteracted);
     }
 
+    useEffect(() => {
+        console.log("CardElement interacted:", cardElementInteracted);
+    }, [cardElementInteracted]);
+    
     return (
         <div className='payment'>
             <div className='payment__container'>
@@ -173,7 +195,7 @@ function Payment() {
 
                                 <div className='payment__priceContainer'>
                                     <h3>Total Amount: {formattedTotal}</h3>
-                                    <button disabled={processing || disabled || succeeded}>
+                                    <button disabled={processing || succeeded}>
                                         <span>{processing ? <p>Loading</p> : "Place Order Now"}</span>
                                     </button>
                                 </div>
