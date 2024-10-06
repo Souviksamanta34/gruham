@@ -83,6 +83,7 @@ function Register() {
                             type: 'SET_USER',
                             user: {
                                 ...authUser.user,
+                                uid: authUser.user.uid,
                                 firstName: firstName,
                                 lastName: lastName,
                                 phoneNumber: phoneNumber,
