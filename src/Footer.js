@@ -17,7 +17,7 @@ function Footer() {
           <h3><Link to="/contact">Contact Us</Link></h3>
         </div>
         <div className="footer__section">
-          <h3><a href="https://www.facebook.com" target="_blank" rel="noreferrer">Follow Us</a></h3>
+          <h3><a href="https://www.instagram.com/gruhamproduct/" target="_blank" rel="noreferrer">Follow Us</a></h3>
         </div>
       </div>
       <div className="footer__copyright">
