@@ -14,26 +14,26 @@ function Login() {
         e.preventDefault();
     
         auth
-        .signInWithEmailAndPassword(email, password)
-        .then(async (auth) => { // Make this function async to await Firestore call
-            if (auth) {
-                // Fetch user details from Firestore
-                const userDoc = await db.collection('users').doc(auth.user.uid).get();
-
-                if (userDoc.exists) {
-                    // Dispatch the user into the global state with additional info
+            .signInWithEmailAndPassword(email, password)
+            .then(async (auth) => {
+                if (auth) {
+                    const userDoc = await db.collection('users').doc(auth.user.uid).get();
+                    // Dispatch the user into the global state
                     dispatch({
                         type: 'SET_USER',
                         user: {
-                            ...auth.user,
-                            ...userDoc.data(), // Spread user document data
-                        },
+                            uid: auth.user.uid,
+                            email: auth.user.email,
+                            name: userDoc.data().name,
+                            address: userDoc.data().address,
+                            phone: userDoc.data().phone,
+                            ...userDoc.data(),
+                        }, // Send the signed-in user's info
                     });
-
+    
                     navigate('/');
                 }
-            }
-        })
+            })
             .catch(error => {
                 // Handle specific Firebase error codes
                 switch (error.code) {
@@ -55,25 +55,6 @@ function Login() {
                 }
             });
     };    
-
-    const register = e => {
-        e.preventDefault();
-
-        auth
-            .createUserWithEmailAndPassword(email, password)
-            .then((auth) => {
-                if (auth) {
-                    // Dispatch the new user into the global state
-                    dispatch({
-                        type: 'SET_USER',
-                        user: auth.user, // Send the registered user's info
-                    });
-
-                    navigate('/');
-                }
-            })
-            .catch(error => alert(error.message));
-    }
 
     return (
         <div className='login'>
