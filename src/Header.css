@@ -60,7 +60,7 @@
 }
 
 /* Media query for mobile responsiveness */
-@media (max-width: 768px) {
+@media (max-width: 468px) {
   .header {
       flex-direction: column;
       height: auto;
