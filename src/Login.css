@@ -16,7 +16,7 @@
   }
 
 .login__container {
-    width: 300px;
+    width: 380px;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -65,3 +65,25 @@
     margin-top: 10px;
     border-color: darkgray;
   }
+
+  .login__signup {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+}
+
+.login__signup p {
+    margin-right: 5px;
+}
+
+.login__signupLink {
+    color: #00aaff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login__signupLink:hover {
+    text-decoration: underline;
+}
