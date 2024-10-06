@@ -2,7 +2,8 @@
   display: flex;
   padding: 20px;
   background-color: rgba(212, 189, 189, 0.98);
-  height: max-content;
+  min-height: 100vh;
+  max-height: max-content;
   justify-content: space-between;
 }
 

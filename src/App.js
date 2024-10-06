@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { auth } from "./firebase";
 import Home from "./Home";
 import Payment from "./Payment";
+import Footer from './Footer'; 
 import Orders from "./Orders";
 import Header from "./Header";
 import Login from "./Login";
@@ -75,6 +76,7 @@ function App() {
             <Route exact path="/payment" element={<ParentComponent />} />
             <Route exact path="/orders" element={<Orders />} /> {/* Pass user as a prop */}
           </Routes>
+          <Footer /> 
         </div>
       </Router>
     </StateProvider>
