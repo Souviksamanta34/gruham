@@ -1,58 +1,80 @@
 .product {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    padding: 20px;
-    justify-content: space-between;
-    width: 100%;
-    max-height: 400px;
-    min-width: 100px;
-    background-color: rgba(212, 189, 189, 0.98);
-    z-index: 1;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-  }
-  
-  .product__rating {
-    display: flex;
-  }
-  
-  
-  .product > button {
-    background: #00aaff;
-    align-self: center;
-    border: 1px solid;
-    max-width: fit-content;
-    margin-top: 10px;
-    border-color: #a88734 #9c7e31 #846a29;
-    color: #111;
-    padding: 2px 5px; /* Add padding for better touch targets on mobile */
-    cursor: pointer;
-  }
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 20px;
+  justify-content: space-between;
+  width: 100%; /* Full width of the parent container */
+  max-height: 400px; /* Limit the maximum height */
+  min-width: 100px; /* Minimum width to maintain a usable button */
+  background-color: rgba(212, 189, 189, 0.98);
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Add a slight shadow for better visibility */
+  border-radius: 8px; /* Add rounded corners for better aesthetics */
+}
 
-  .product__price {
-    margin-top: 5px;
-  }
-  
-  .product__info {
-    align-self: top;
-    height: 30%;
-    top: 0%;
-    margin-bottom: 15px;
+.product__rating {
+  display: flex;
+}
+
+.product > button {
+  background: #00aaff;
+  align-self: center;
+  border: 1px solid;
+  max-width: fit-content;
+  margin-top: 10px;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+  padding: 2px 5px; /* Add padding for better touch targets on mobile */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.product__price {
+  margin-top: 5px;
+}
+
+.product__info {
+  align-self: flexstart-; 
+  height: auto; 
+}
+
+.product__image {
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center the image horizontally */
+  max-width: 80%; /* Limit the maximum width of the image container */
+  margin: 0 auto;
+  max-height: 50%; /* Adjust this if necessary for your design */
+}
+
+.product__image img {
+  max-width: 100%; /* Scale image width to fit container */
+  max-height: 100%; /* Scale image height to fit container */
+  object-fit: contain; /* Maintain aspect ratio */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .product {
+    padding: 10px; /* Reduce padding on smaller screens */
+    max-height: 300px; /* Adjust maximum height for smaller screens */
   }
 
   .product__image {
-    display: flex; /* Use flexbox for centering */
-    justify-content: top; 
-    max-width: 80%; /* Limit the maximum width of the image container */
-    margin: 0 auto;
-    max-height: 50%;
+    max-height: 60%; /* Increase max-height for the image on smaller screens */
   }
-  
-  .product__image img {
-    max-width: 100%; /* Scale image width to fit container */
-    max-height: 100%; /* Scale image height to fit container */
-    object-fit: contain; /* Maintain aspect ratio */
+}
+
+@media (max-width: 480px) {
+  .product {
+    margin: 5px; /* Further reduce margin on very small screens */
+    max-height: 250px; /* Adjust maximum height for extra small screens */
   }
-  
-  
+
+  .product > button {
+    padding: 8px 16px; /* Adjust button size for smaller screens */
+  }
+
+  .product__info {
+    margin-bottom: 10px; /* Adjust spacing for small screens */
+  }
+}
