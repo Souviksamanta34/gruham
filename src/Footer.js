@@ -8,7 +8,7 @@ function Footer() {
       <div className="footer__container">
         {/* Section 1: About the Company */}
         <div className="footer__section">
-          <h3>About Us</h3>
+          <h3><a href="/about">About Us</a></h3>
         </div>
 
         {/* Section 2: Customer Service Links */}
