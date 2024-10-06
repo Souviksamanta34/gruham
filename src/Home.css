@@ -8,7 +8,9 @@
   margin-right: auto;
   margin-bottom: auto;
   width: 78%;
-  max-width: 1500px; /* Limits the width */
+  max-width: 1500px; 
+  min-height: 100vh;
+  max-height: max-content;
 }
 
 /* Row container */
