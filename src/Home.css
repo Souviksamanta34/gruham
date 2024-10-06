@@ -13,12 +13,14 @@
   max-height: max-content;
 }
 
+
 /* Row container */
 .home__row {  
   display: flex; 
   justify-content: space-between; /* Ensure proper space between items */
   align-items: center; /* Center items in the row */
   z-index: 1; 
+  flex-wrap: nowrap;
   margin: 5px; /* This applies margin to all sides */
   width: 100%; /* Ensure row takes full width of parent container */
   max-width: 1500px; /* Keeps row within max-width limit */
@@ -32,14 +34,21 @@
   width: 100%; /* Make sure the image container spans full width */
 }
 
+.product {
+  width: 100%; 
+  max-width: 2000px; 
+  height: 500px; 
+  margin: 0 auto; 
+}
+
 /* Image */
 .home__image {
 width: calc(100% - 18px);
 z-index: -1;
 margin-left: 14px;
 margin-top: 40px;
-
- /* Applies margin to all sides */
+height: auto;
+border-radius: 8px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -63,5 +72,6 @@ margin-top: 40px;
   .home__image {
     width: 100%; /* Make image full width */
     margin-left: 0;
+    height: auto;
   }
 }
