@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import ScrollToTop from './ScrollToTop'; 
 import { useStateValue } from "./StateProvider";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
@@ -60,6 +61,7 @@ function App() {
   return (
     <StateProvider initialState={initialState} reducer={reducer}>
       <Router>
+      <ScrollToTop />
         <div className="app">
           <Header />
           <Routes>
