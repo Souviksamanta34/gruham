@@ -67,7 +67,7 @@
 @media (max-width: 480px) {
   .product {
     margin: 5px; /* Further reduce margin on very small screens */
-    max-height: 250px; /* Adjust maximum height for extra small screens */
+    max-height: 370px; /* Adjust maximum height for extra small screens */
   }
 
   .product > button {
