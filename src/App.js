@@ -10,6 +10,8 @@ import { auth } from "./firebase";
 import Home from "./Home";
 import Payment from "./Payment";
 import Footer from './Footer'; 
+import About from "./About";
+import Contact from './Contact';
 import Orders from "./Orders";
 import Header from "./Header";
 import Login from "./Login";
@@ -67,6 +69,7 @@ function App() {
           <Header />
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/about" element={<About />} /> 
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/register" element={<Register />} />
             <Route exact path="/checkout" element={<Checkout   
@@ -74,6 +77,7 @@ function App() {
             <Route exact path="/product" element={<Product   
  />} />
             <Route exact path="/payment" element={<ParentComponent />} />
+            <Route exact path="/contact" element={<Contact />} />
             <Route exact path="/orders" element={<Orders />} /> {/* Pass user as a prop */}
           </Routes>
           <Footer /> 

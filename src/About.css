@@ -1,0 +1,47 @@
+/* About.css */
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: rgba(212, 189, 189, 0.98);/* Light background */
+  }
+  
+  .about__container {
+    width: 80%;
+    max-width: 1000px;
+    text-align: left;
+    background-color: #fff; /* White card for the content */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about__container h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  .about__container p {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.8;
+  }
+  
+  .about__container h3 {
+    margin-top: 30px;
+    font-size: 1.8rem;
+    color: #444;
+  }
+  
+  .about__container a {
+    color: #007bff; /* Link color */
+    text-decoration: none;
+  }
+  
+  .about__container a:hover {
+    text-decoration: underline;
+  }
+  
