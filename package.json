@@ -19,7 +19,7 @@
     "@stripe/stripe-js": "^4.6.0",
     "@svgr/plugin-svgo": "^8.1.0",
     "@svgr/webpack": "^8.1.0",
-    "axios": "^1.7.7",
+    "axios": "^1.7.8",
     "axios-retry": "^4.5.0",
     "css-select": "^5.1.0",
     "firebase": "^10.14.0",
